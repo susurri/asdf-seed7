@@ -37,6 +37,13 @@ install_version() {
 	local install_type="$1"
 	local version="$2"
 	local install_path="$3"
+	local platform
+
+  case "$OSTYPE" in
+    darwin*) platform="darwin" ;;
+    linux*) platform="linux" ;;
+    *) fail "Unsupported platform" ;;
+  esac
 
 	if [ "$install_type" != "version" ]; then
 		fail "asdf-$TOOL_NAME supports release installs only"
@@ -47,6 +54,9 @@ install_version() {
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
 		cd "$install_path"/src
+		if [ "$platform" = "darwin" ]; then
+			cp mk_osxcl.mak makefile
+		fi
 		make depend
 		make
 		make s7c

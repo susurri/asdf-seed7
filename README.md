@@ -17,7 +17,7 @@
 # Dependencies
 
 - `bash`, `curl`, `tar`: generic POSIX utilities.
-- `gcc`, `make` and the development packages for X11 and ncurses
+- `gcc`(Linux), `make` and the development packages for X11 and ncurses
 
 # Install
 
