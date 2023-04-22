@@ -39,11 +39,11 @@ install_version() {
 	local install_path="$3"
 	local platform
 
-  case "$OSTYPE" in
-    darwin*) platform="darwin" ;;
-    linux*) platform="linux" ;;
-    *) fail "Unsupported platform" ;;
-  esac
+	case "$OSTYPE" in
+	darwin*) platform="darwin" ;;
+	linux*) platform="linux" ;;
+	*) fail "Unsupported platform" ;;
+	esac
 
 	if [ "$install_type" != "version" ]; then
 		fail "asdf-$TOOL_NAME supports release installs only"
