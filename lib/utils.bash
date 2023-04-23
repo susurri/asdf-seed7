@@ -62,6 +62,7 @@ install_version() {
 		make s7c
 		cd ..
 		rm -rf src
+		rm bin/*.bat
 
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
